@@ -1,0 +1,15 @@
+<div id="tweet-div">
+    <div class="container"><br><br>
+        <div class="content m-5 box">
+            <h3 style="text-align: center;" class="mb-5">What type of Thread do you want to create ?</h3>
+            <div class="control" style="display: flex; justify-content: center; align-items: center;">
+                <input class="input is-focused" type="text" placeholder="Topic"  style="width: 500px;" name="tweet" hx-post="{% url 'get_thread' %}" hx-target="#tweet_result"/>
+                <button class="button is-success m-5">Search</button>
+            </div>
+        </div>
+        <button class="button is-success is-outlined is-dark is-rounded ml-5" hx-get="{% url 'view_tweets'%}" hx-target="#tweet_result" hx-swap="innerhtml" hx-push-url="{% url 'view_tweets' %}">View Previous Tweets</button><button
+        class="button is-rounded is-primary is-outlined ml-5" hx-get="{% url 'test' %}" hx-target="#main-div" hx-swap="innerHtml">Tweet</button>
+        <!-- For Respond -->
+        {% include 'partials/thread_list.html' %}
+    </div>
+</div>

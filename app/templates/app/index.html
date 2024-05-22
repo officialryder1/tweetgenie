@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.0/css/bulma.min.css" integrity="sha512-+oEiKVGJRHutsibRYkkTIfjI0kspDtgJtkIlyPCNTCFCdhy+nSe25nvrCw7UpHPwNbdmNw9AkgGA+ptQxcjPug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{% url 'home' %}">
+            <h1 style="font-weight: bolder; letter-spacing: -0.4px; font-size: large;">TweetGenie<small class="is-size-2">.</small></h1>
+          </a>
+          <div class="navbar-burger js-burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <a
+                    class="bd-tw-button button"
+                    data-social-network="Twitter"
+                    data-social-action="tweet"
+                    data-social-target="https://twitter.com/Official_ryder0"
+                    target="_blank"
+                    href="https://twitter.com/Official_ryder0"
+                  >
+                    <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                    </span>
+                    <span> Tweet </span>
+                  </a>
+                </p>
+                <p class="control">
+                  <a class="button is-primary" href="{% url 'register' %}">
+                    <span class="icon">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <span>Sign Up</span>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 10px;">
+      <div class="is-flex m-5 is-justify-content-space-around is-flex-wrap-wrap is-flex-direction-row">
+        <div class="section">
+            <h1 class="is-size-2 is-size-3-mobile mt-5" style="font-weight: 900; letter-spacing: -0.4px; line-height: 1;">Effortless
+              <b style="background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); -webkit-text-fill-color: transparent; -webkit-background-clip: text; font-weight: 900;">Tweets and Threads</b>
+              <br> In Just <I style="color: #ff6b08;">30 Seconds</I></h1><br><br>
+              <div class="is-flex is-justify-content-center is-flex-wrap-wrap">
+              <a href="{% url 'test' %}" class="button is-danger is-light is-rounded is-large mb-5">Start Now</a><button class="button is-primary is-outlined is-dark is-large is-rounded ml-5 mb-5">Learn more</button>
+              </div>
+        </div>
+        <div class="is-mobile">
+          <img src="{% static 'img/photo-1535303311164-664fc9ec6532.avif' %}" style="border-radius: 10px; height: 600px; width: 500px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Pros and Cons -->
+    <div class="container" style="margin-top: 50px;">
+      <div class="box is-flex is-justify-content-center is-flex-direction-row is-flex-wrap-wrap">
+        <div class="card is-rounded m-5" style="width: 400px; background-color: RGB(60 188 60); height: 550px;">
+          <div class="card-content">
+            <p class="title" style="text-align: center; letter-spacing: -0.4px; line-height: 1">Pros</p>
+            <hr>
+            <div class="subtitle">
+              <small class="" style="letter-spacing: -0.4px; line-height: 1; color: white;">
+                1. <b>Time Efficiency</b>: Saves time by automating content creation. <br><br>
+                2. <b>Consistency</b>: Ensures regular posting schedules. <br><br>
+                3. <b>Content Variety</b>: Provides diverse and interesting content ideas. <br><br>
+                4. <b>Brand Voice Maintenance</b>: Customizable to reflect unique voice and style. <br><br>
+                5. <b>Data-Driven Insights</b>: Uses trends and data <br>for relevant tweets.
+              </small>
+            </div>
+            
+          </div>
+        </div>
+       
+        <div class="card is-rounded m-5" style="width: 400px; height: 550px; background-color: RGB(207 13 13);">
+          <div class="card-content">
+            <p class="title" style="text-align: center; letter-spacing: -0.4px; line-height: 1; color: white;">Cons</p>
+            <hr>
+            <div class="subtitle">
+              <small style="letter-spacing: -0.4px; line-height: 1; color: white;">
+                1. <b>Features</b>: Subscription fees for premium features. <br><br>
+                2. <b>Maintenance</b>: Growth of the platform will depends on the users. <br><br>
+                3. <b>Scalability</b>:  Ensuring the platform can scale effectively with increasing users. <br><br>
+                4. <b>Cost</b>: it a free to use platform. <br><br>
+                5. <b>Customer Support</b>: : Providing effective and timely customer support to user
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section 2 -->
+    <div class="container" style="margin-top: 100px;">
+      <div class="is-flex m-5 is-justify-content-space-around is-flex-wrap-wrap is-flex-direction-row">
+        <div class="is-mobile">
+          <img src="{% static 'img/phone.avif' %}" style="border-radius: 10px; height: 600px; width: 500px;">
+        </div>
+        <div class="section">
+          <h1 class="is-size-1 is-size-3-mobile mt-5" style="font-weight: bold; letter-spacing: -0.4px; line-height: 1;">Effortless
+            <b style="background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">Tweets and Threads</b>
+            <br> In Just <I style="color: #ff6b08;">30 Seconds</I></h1><br><br>
+            <p class="is-size-5-mobile">
+              With TweetGenie, you can maintain a consistent online presence without the hassle of daily content creation.<br><br> Our platform analyzes trending topics and user data to deliver relevant, timely tweets tailored<br> to your unique voice and style. Customizable settings ensure your brand’s<br><br> personality shines through every post.
+
+              TweetGenie not only saves you time but also<br> enhances your social media strategy by providing diverse content ideas<br><br> and optimizing engagement.
+              Experience the perfect blend<br> of automation and authenticity with TweetGenie – where technology meets creativity.<br> Join today and transform your Twitter game
+            </p><br><br>
+            <a href="{% url 'test' %}" class="button is-danger is-light is-rounded is-large">Start Now</a>
+        </div>
+      </div>
+    </div>
+    <!-- Price list  -->
+    <h1 class="is-size-1" style="text-align: center; font-weight: 900;">Subscription</h1><br>
+    <div class="container">
+      <div class="hero">
+        <h1 style="background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); -webkit-text-fill-color: transparent; -webkit-background-clip: text; text-align: center; line-height: 1; letter-spacing: -0.4px;" class="is-size-1 is-size-3-mobile">Start Tweeting Today</h1><br>
+        <p style="text-align: center;">start a free trial with 30 API credit - <b style="color: rgb(78, 202, 78);">no credit card required</b></p>
+      </div>
+    </div>
+    <div class="is-flex is-justify-content-center container is-flex-wrap-wrap">
+      <div class="box m-5" style="height: 400px; width: 300px;">
+        <p style="text-align: center; font-weight: 900; font-size: 30px;" class="pt-3">Monthly plan</p><br><hr>
+        <h1 class="is-size-2" style="text-align: center;"><b>$10</b></h1><br>
+        <p style="text-align: center;"><b>USD/month</b></p><br><br>
+        <div style="text-align: center;">
+          <strong style="text-align: center;">Packages</strong><br><br>
+          <small>unlimited token for a month</small><br>
+          <small>generate thread</small><br>
+        </div><br>
+        <button class="button is-success" style="color: white; font-weight:700; display: block; margin: auto;"> Subscribe</button>
+      </div>
+      <div class="card m-5" style="height: 400px; width: 300px;"><br>
+        <p style="text-align: center; font-weight: 900; font-size: 30px;" class="pt-3">Annual plan</p><br><hr>
+        <h1 class="is-size-2" style="text-align: center;"><b>$80</b></h1><br>
+        <p style="text-align: center;"><b>USD/year</b></p><br><br>
+        <div style="text-align: center;">
+          <strong style="text-align: center;">Packages</strong><br><br>
+          <small>unlimited token for a year</small><br>
+          <small>generate thread</small><br>
+          <small>personalized tweet and thread</small><br>
+        </div><br>
+        <button class="button is-success" style="color: white; font-weight:700; display: block; margin: auto;"> Subscribe</button>
+      </div>
+      <div class="card m-5" style="height: 400px; width: 300px;"><br>
+        <p style="text-align: center; font-weight: 900; font-size: 30px;" class="pt-3">Premium plan</p><br><hr>
+        <h1 class="is-size-2" style="text-align: center;"><b>$300</b></h1><br><br>
+        <p style="text-align: center;"><b>USD/unlimited</b></p><br>
+       
+        <div style="text-align: center;">
+            <strong style="text-align: center;">Packages</strong><br><br>
+            <small>unlimited token for life time</small><br>
+            <small>generate thread</small><br>
+            <small>personalized tweet and thread</small><br>
+            <small>generate image</small>
+        </div><br>
+        <button class="button is-success" style="color: white; font-weight:700; display: block; margin: auto;"> Subscribe</button>
+      </div>
+    </div>
+
+    <!-- Testimonies  -->
+    <h1 class="is-size-1" style="text-align: center; font-weight: 900;">Testimonies Section</h1>
+    <!-- Contact us  -->
+    <div class="container">
+      <div class="control"><br><br>
+        <h1 style="background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); -webkit-text-fill-color: transparent; -webkit-background-clip: text; text-align: center; line-height: 1; letter-spacing: -0.4px; font-weight: 900;" class="is-size-2 is-size-4-mobile">Stay in touch with our Newsletter</h1><br>
+        <p style="text-align: center;">Stay in touch with our daily updates and feedback for better user performance.</p>
+        <br><br>
+        <div class="is-flex is-justify-content-center">
+          <input class="input is-focused" type="text" placeholder="Enter Email" style="width: 700px;" />
+          <button class="button is-success ml-3">Subscribe</button>
+        </div>
+        
+      </div>
+    </div>
+    <br><br><br>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Made</strong> by <a href="https://twitter.com/Official_ryder0">Official_ryder</a>.
+        </p>
+      </div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // Get all "navbar-burger" elements
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Add a click event on each of them
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
+      });
+
+    });
+</script>
+</html>

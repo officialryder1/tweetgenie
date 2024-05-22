@@ -1,0 +1,54 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+{% include 'partials/nav.html'%}
+
+<style>
+    .success{
+	color:rgb(18, 244, 18);
+	transition: all ease-in 0.5s;
+    }
+    .error{
+        color: red;
+        transition: all ease-in 2s;
+    }
+
+</style>
+<br><br>
+<div class="container" style="margin-top: 50px;">
+    <div class="m-5" style="display: flex; justify-content: center; align-items: center;">
+        <div class="box mt-5"style="width: 700px;">
+            <form action="{% url 'login_user' %}" method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" placeholder="username" name="username">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                      </span>
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input" type="password" placeholder="Password" name="password">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-success">
+                        Login
+                      </button>
+                    </p>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock%}
