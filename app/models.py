@@ -20,7 +20,7 @@ class Tweets(models.Model):
 class Subscription(models.Model):
     name = models.CharField(max_length=20)
     amount = models.PositiveIntegerField()
-    duration = models.IntegerField()
+    token = models.IntegerField()
     package = models.TextField(null=True, blank=True)
     def __str__(self):
         return self.name

@@ -1,0 +1,22 @@
+<br>
+<div class="container is-max-desktop" id="tweet_result">
+    {% if event %}
+        <button class="button button is-success is-small is-rounded is-shadow is-outlined" onclick="copyWork()"><i class="fa-regular fa-copy"></i></button>
+        <div class="box" id="inputText">
+            <h1 ></h1>
+            {% for output in event %}
+            <small>{{output.data}}</small>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    function copyWork() {
+        var Text = document.getElementById('inputText');
+        navigator.clipboard.writeText(Text.innerText);
+        alert("copied to clipboard")
+    }
+    
+</script>

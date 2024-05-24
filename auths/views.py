@@ -11,7 +11,7 @@ def register_user(request):
         email = request.POST['email']
         
         user = User.objects.create(username=username, password=password)
-        token = UserToken.objects.create(user=username)
+        
 
         # user = authenticate(request, username=username, password=password)
         login(request, user)

@@ -11,5 +11,8 @@ urlpatterns = [
     path('get_thread', get_thread, name='get_thread'),
     path('out-token', out_token, name="token"),
     path('subscription', subscribe, name='subscribe'),
-    path('get_sub/<str:pk>', get_subscription, name="get_subscription")
+    path('get_sub/<str:pk>', get_subscription, name="get_subscription"),
+    path('add_token/<str:id>', add_token, name='add-token'),
+    path('rephrase', rephrase, name='rephrase'),
+    path('get_rephrase', rephrase_list, name='get_rephrase')
 ]
