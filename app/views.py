@@ -12,7 +12,11 @@ client = Client(api_token=settings.REPLICATE_API_TOKEN)
 
 
 def home(request):
-  return render(request, 'app/index.html', {})
+  subscription = Subscription.objects.all()
+  content = {
+    'sub':subscription
+  }
+  return render(request, 'app/index.html', content)
   
 
 @login_required(login_url='login_user')
@@ -117,13 +121,14 @@ def get_thread(request):
 
   tweet = Tweets.objects.create(user=request.user, tweet_title=tweet, tweet=output_respond)
   token = UserToken.objects.get(user=request.user)
-  token.token -= 1
+  token.token -= 5
   token.save()
   return render(request, 'partials/thread_list.html', {'event':full_response} )
 
 def documentation(request):
   return render(request, 'app/documentation.html', {})
 
+@login_required(login_url='login_user')
 def out_token(request):
   subscription = Subscription.objects.all()
   content = {
@@ -131,6 +136,7 @@ def out_token(request):
   }
   return render(request, 'partials/out_token.html', content)
 
+@login_required(login_url='login_user')
 def subscribe(request):
   subscription = Subscription.objects.all()
   content = {
@@ -138,6 +144,7 @@ def subscribe(request):
   }
   return render(request, 'partials/subscribe.html', content)
 
+@login_required(login_url='login_user')
 def get_subscription(request, pk):
   sub = Subscription.objects.get(pk=pk)
   content  = {
@@ -145,7 +152,7 @@ def get_subscription(request, pk):
   }
   return render(request, 'partials/get_sub.html', content)
 
-
+@login_required(login_url='login_user')
 def add_token(request, id):
   sub = Subscription.objects.get(id=id)
   user = UserToken.objects.get(user=request.user)
@@ -153,10 +160,11 @@ def add_token(request, id):
   user.save()
   return redirect('test') 
 
-
+@login_required(login_url='login_user')
 def rephrase(request):
   return render(request, 'app/rephrase.html', {})
 
+@login_required(login_url='login_user')
 def rephrase_list(request):
   tweet = request.POST.get('tweet')
 
@@ -189,6 +197,6 @@ def rephrase_list(request):
 
   tweet = Tweets.objects.create(user=request.user, tweet_title=tweet, tweet=output_respond)
   token = UserToken.objects.get(user=request.user)
-  token.token -= 1
+  token.token -= 2
   token.save()
   return render(request, 'partials/rephrase_list.html', {'event':full_response} )

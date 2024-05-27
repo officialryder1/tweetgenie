@@ -60,16 +60,16 @@
     </nav>
     <div class="container" style="margin-top: 10px;">
       <div class="is-flex m-5 is-justify-content-space-around is-flex-wrap-wrap is-flex-direction-row">
-        <div class="section">
+        <div class="section" style="max-height: 370px;">
             <h1 class="is-size-2 is-size-3-mobile mt-5" style="font-weight: 900; letter-spacing: -0.4px; line-height: 1;">Effortless
               <b style="background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); -webkit-text-fill-color: transparent; -webkit-background-clip: text; font-weight: 900;">Tweets and Threads</b>
               <br> In Just <I style="color: #ff6b08;">30 Seconds</I></h1><br><br>
               <div class="is-flex is-justify-content-center is-flex-wrap-wrap">
-              <a href="{% url 'test' %}" class="button is-danger is-light is-rounded is-large mb-5">Start Now</a><button class="button is-primary is-outlined is-dark is-large is-rounded ml-5 mb-5">Learn more</button>
+              <a href="{% url 'test' %}" class="button is-danger is-light is-rounded is-large mb-5">Start Now</a><button class="button is-primary is-outlined is-dark is-large is-rounded ml-3 mb-5">Learn more</button>
               </div>
         </div>
         <div class="is-mobile">
-          <img src="{% static 'img/photo-1535303311164-664fc9ec6532.avif' %}" style="border-radius: 10px; height: 600px; width: 500px;">
+          <iframe width="640" height="360" src="https://www.loom.com/embed/43fb77582309409f8411899e03a55794?sid=92255551-1b3b-492b-938e-fa6cb3609744" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -94,17 +94,14 @@
           </div>
         </div>
        
-        <div class="card is-rounded m-5" style="width: 400px; height: 550px; background-color: RGB(207 13 13);">
+        <div class="card is-rounded m-5" style="width: 400px; height: 550px; background-color: RGB(157 60 53);">
           <div class="card-content">
             <p class="title" style="text-align: center; letter-spacing: -0.4px; line-height: 1; color: white;">Cons</p>
             <hr>
             <div class="subtitle">
               <small style="letter-spacing: -0.4px; line-height: 1; color: white;">
-                1. <b>Features</b>: Subscription fees for premium features. <br><br>
-                2. <b>Maintenance</b>: Growth of the platform will depends on the users. <br><br>
-                3. <b>Scalability</b>:  Ensuring the platform can scale effectively with increasing users. <br><br>
-                4. <b>Cost</b>: it a free to use platform. <br><br>
-                5. <b>Customer Support</b>: : Providing effective and timely customer support to user
+                1. Let us know if you have any. <br><br>
+                
             </div>
           
           </div>
@@ -121,7 +118,7 @@
           <h1 class="is-size-1 is-size-3-mobile mt-5" style="font-weight: bold; letter-spacing: -0.4px; line-height: 1;">Effortless
             <b style="background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">Tweets and Threads</b>
             <br> In Just <I style="color: #ff6b08;">30 Seconds</I></h1><br><br>
-            <p class="is-size-5-mobile">
+            <p class="is-size-5-mobile" style="max-width: 400px; line-height: 1.5; letter-spacing: 0.5px;">
               With TweetGenie, you can maintain a consistent online presence without the hassle of daily content creation.<br><br> Our platform analyzes trending topics and user data to deliver relevant, timely tweets tailored<br> to your unique voice and style. Customizable settings ensure your brand’s<br><br> personality shines through every post.
 
               TweetGenie not only saves you time but also<br> enhances your social media strategy by providing diverse content ideas<br><br> and optimizing engagement.
@@ -136,48 +133,50 @@
     <div class="container">
       <div class="hero">
         <h1 style="background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44); -webkit-text-fill-color: transparent; -webkit-background-clip: text; text-align: center; line-height: 1; letter-spacing: -0.4px;" class="is-size-1 is-size-3-mobile">Start Tweeting Today</h1><br>
-        <p style="text-align: center;">start a free trial with 30 API credit - <b style="color: rgb(78, 202, 78);">no credit card required</b></p>
+        <p style="text-align: center;">start a free trial with 25 API credit - <b style="color: rgb(78, 202, 78);">no credit card required</b></p>
       </div>
     </div>
+    {% if user.is_authenticated %}
     <div class="is-flex is-justify-content-center container is-flex-wrap-wrap">
-      <div class="box m-5" style="height: 400px; width: 300px;">
-        <p style="text-align: center; font-weight: 900; font-size: 30px;" class="pt-3">Monthly plan</p><br><hr>
-        <h1 class="is-size-2" style="text-align: center;"><b>$10</b></h1><br>
-        <p style="text-align: center;"><b>USD/month</b></p><br><br>
-        <div style="text-align: center;">
-          <strong style="text-align: center;">Packages</strong><br><br>
-          <small>unlimited token for a month</small><br>
-          <small>generate thread</small><br>
-        </div><br>
-        <button class="button is-success" style="color: white; font-weight:700; display: block; margin: auto;"> Subscribe</button>
-      </div>
-      <div class="card m-5" style="height: 400px; width: 300px;"><br>
-        <p style="text-align: center; font-weight: 900; font-size: 30px;" class="pt-3">Annual plan</p><br><hr>
-        <h1 class="is-size-2" style="text-align: center;"><b>$80</b></h1><br>
-        <p style="text-align: center;"><b>USD/year</b></p><br><br>
-        <div style="text-align: center;">
-          <strong style="text-align: center;">Packages</strong><br><br>
-          <small>unlimited token for a year</small><br>
-          <small>generate thread</small><br>
-          <small>personalized tweet and thread</small><br>
-        </div><br>
-        <button class="button is-success" style="color: white; font-weight:700; display: block; margin: auto;"> Subscribe</button>
-      </div>
-      <div class="card m-5" style="height: 400px; width: 300px;"><br>
-        <p style="text-align: center; font-weight: 900; font-size: 30px;" class="pt-3">Premium plan</p><br><hr>
-        <h1 class="is-size-2" style="text-align: center;"><b>$300</b></h1><br><br>
-        <p style="text-align: center;"><b>USD/unlimited</b></p><br>
-       
+      {% for sub in sub %}
+      <div class="card m-5" style="height: 350px; width: 300px; display: block; margin: auto;"><br>
+        <p style="text-align: center; font-weight: 900; font-size: 30px; cursor: pointer;" class="pt-3" hx-get="{% url 'get_subscription' sub.pk %}" hx-target="#subdiv" hx-push-url="{% url 'get_subscription' sub.pk %}">{{sub.name}}</p>
+        <h1 class="is-size-2" style="text-align: center;"><b>${{sub.amount}}</b></h1>
+        <p style="text-align: center;"><b>USD</b></p><br>
+      
         <div style="text-align: center;">
             <strong style="text-align: center;">Packages</strong><br><br>
-            <small>unlimited token for life time</small><br>
+            <small>unlimited wishes for life time</small><br>
             <small>generate thread</small><br>
             <small>personalized tweet and thread</small><br>
-            <small>generate image</small>
+            <small>generate image</small><br>
+            <small>{{sub.token}} wishes</small>
         </div><br>
-        <button class="button is-success" style="color: white; font-weight:700; display: block; margin: auto;"> Subscribe</button>
+        <a hx-get="{% url 'get_subscription' sub.pk %}" hx-target="#subdiv" hx-push-url="{% url 'get_subscription' sub.pk %}" hx-swap="innerHtml" class="button is-success" style="color: white; font-weight:700; display: block; margin: auto; width: 100px;" type="button"> view plan</a>
       </div>
+      {% endfor %}
     </div>
+    {% else %}
+    <div class="is-flex is-justify-content-center container is-flex-wrap-wrap">
+      {% for sub in sub %}
+      <div class="card m-5" style="height: 350px; width: 300px; display: block; margin: auto;"><br>
+        <p style="text-align: center; font-weight: 900; font-size: 30px; cursor: pointer;" class="pt-3" hx-get="{% url 'get_subscription' sub.pk %}" hx-target="#subdiv" hx-push-url="{% url 'get_subscription' sub.pk %}">{{sub.name}}</p>
+        <h1 class="is-size-2" style="text-align: center;"><b>${{sub.amount}}</b></h1>
+        <p style="text-align: center;"><b>USD</b></p><br>
+      
+        <div style="text-align: center;">
+            <strong style="text-align: center;">Packages</strong><br><br>
+            <small>unlimited wishes for life time</small><br>
+            <small>generate thread</small><br>
+            <small>personalized tweet and thread</small><br>
+            <small>generate image</small><br>
+            <small>{{sub.token}} wishes</small>
+        </div><br>
+        <a href="{% url 'login_user' %}" class="button is-success" style="color: white; font-weight:700; display: block; margin: auto; width: 100px;" type="button"> view plan</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
 
     <!-- Testimonies  -->
     <h1 class="is-size-1" style="text-align: center; font-weight: 900;">Testimonies Section</h1>

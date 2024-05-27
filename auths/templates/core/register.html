@@ -16,7 +16,7 @@
 {% load socialaccount %}
 <br><br><br>
 <h1 style="text-align: center; font-size: large; font-weight: 800; letter-spacing: -1px;" class="is-size-1">Signup using</h1><br>
-<span style="display: flex; justify-content: center; align-items: center;"><a href="{% provider_login_url 'github' %}" class="button is-danger is-rounded mr-5"> Github</a><a href="" class="button is-primary is-rounded">Twitter</a></span>
+<span style="display: flex; justify-content: center; align-items: center;"><a href="{% provider_login_url 'github' %}" class="button is-darkr is-rounded mr-5"><i class="fa-brands fa-github pr-3"></i> Github</a><a href="" class="button is-info is-rounded"><i class="fa-brands fa-twitter pr-3"></i>Twitter</a></span>
 <hr>
 <p style="text-align: center; font-size: large; font-weight: 500;">or</p>
 <div class="container">
@@ -29,7 +29,7 @@
                     <label class="label">Username</label>
                     <div style="display: flex; justify-content: center; align-items: center; ">
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-primary" type="text" placeholder="Text input" name="username" style="width: 500px;" hx-post="{% url 'check-username' %}" hx-trigger="keyup changed" hx-target="#username-msg" hx-swap="outerhtml">
+                        <input class="input is-primary" type="text" placeholder="Text input" name="username" style="width: 300px;" hx-post="{% url 'check-username' %}" hx-trigger="keyup changed" hx-target="#username-msg" hx-swap="outerhtml">
                         <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                         </span>
@@ -45,7 +45,7 @@
                     <label class="label" style="text-align: center;">Email</label>
                     <div style="display: flex; justify-content: center; align-items: center; ">
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-primary" type="email" placeholder="Email input" style="width: 500px;" name="email" hx-post="{% url 'check-email' %}" hx-trigger="keyup changed" hx-swap="outerHtml" hx-target="#email-error">
+                        <input class="input is-primary" type="email" placeholder="Email input" style="width: 300px;" name="email" hx-post="{% url 'check-email' %}" hx-trigger="keyup changed" hx-swap="outerHtml" hx-target="#email-error">
                         <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                         </span>
@@ -58,32 +58,25 @@
                     <div class="field" style="text-align: center;">
                         <label class="label">Password</label>
                         <div class="control">
-                        <input class="input" type="password" placeholder="Enter Password" style="width: 500px;" name="password" >
+                        <input class="input" type="password" placeholder="Enter Password" style="width: 300px;" name="password" >
                         </div>
                     </div>
                     
                     <div class="field" style="text-align: center;">
                         <label class="label">Confirm Password</label>
                         <div class="control">
-                        <input class="input" type="password" placeholder="Confirm Password" style="width: 500px;" name="password1" hx-post="{% url 'check-password' %}" hx-trigger="keyup changed" hx-swap="outerHtml" hx-target="#password-error">
+                        <input class="input" type="password" placeholder="Confirm Password" style="width: 300px;" name="password1" hx-post="{% url 'check-password' %}" hx-trigger="keyup changed" hx-swap="outerHtml" hx-target="#password-error">
                         </div>
                     </div>
                     <p class="help" style="text-align: center;" id="password-error"></p>
                     
-                    <div class="field">
-                    <div class="control">
-                        <label class="checkbox">
-                        <input type="checkbox">
-                        I agree to the <a href="#">terms and conditions</a>
-                        </label>
-                    </div>
-                    </div>
+                    <p style="text-align: center;">Already have an account? <a href="{% url 'login_user' %}">login</a></p><br>
                     
                     
                     
                     <div class="field is-grouped">
-                    <div class="control">
-                        <button class="button is-link">Submit</button>
+                    <div class="control" style="display: block; margin: auto;">
+                        <button class="button is-primary">Submit</button>
                     </div>
                     </div>
                 </div>
