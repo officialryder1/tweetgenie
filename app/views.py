@@ -61,17 +61,15 @@ def search_tweet(request):
     )
     
   
-    print(stream)
+    
     full_response = []
     for chunk in stream:
       full_response.append(chunk)
-
 
     output_respond = []
     for output in full_response:
       output_respond.append(output)
 
-    tweet = Tweets.objects.create(user=request.user, tweet_title=tweet, tweet=output_respond)
     token = UserToken.objects.get(user=request.user)
     token.token -= 1
     token.save()
@@ -119,7 +117,7 @@ def get_thread(request):
   for output in full_response:
     output_respond.append(output)
 
-  tweet = Tweets.objects.create(user=request.user, tweet_title=tweet, tweet=output_respond)
+
   token = UserToken.objects.get(user=request.user)
   token.token -= 5
   token.save()
