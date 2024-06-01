@@ -14,6 +14,7 @@
                 <button class="button is-success m-5">Search</button>
             </div>
         </div>
+        <button class="button is-info is-rounded is-dark ml-5" hx-post="{% url 'next' %}" hx-target="#tweet_result" hx-swap="innerHtml">Next</button>
         <!-- <button class="button is-success is-outlined is-dark is-rounded ml-5" hx-get="{% url 'view_tweets'%}" hx-target="#tweet_result" hx-swap="innerHtml" hx-push-url="{% url 'view_tweets' %}">View Previous Tweets</button> -->
         <button class="button is-rounded is-primary is-outlined ml-5" hx-get="{% url 'thread' %}" hx-target="#tweet-div" hx-swap="innerHtml">Thread</button> <button class="button is-rounded is-primary is-outlined ml-4" hx-get="{% url 'rephrase' %}" hx-target="#tweet-div" hx-swap="innerHtml">Rephrase</button><br><br>
         <!-- For Respond -->
