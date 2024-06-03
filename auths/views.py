@@ -14,7 +14,7 @@ def register_user(request):
         
 
         # user = authenticate(request, username=username, password=password)
-        login(request, user)
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
         return redirect("test")   
     return render(request, 'core/register.html',{})
 
