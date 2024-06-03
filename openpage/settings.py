@@ -26,21 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c6k)z@$1o2-z=3w6*joc%njr=i(+xi2a9zy#0so(lppx0efap2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import sys
+
+if 'runserver' in sys.argv or 'shell' in sys.argv:
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-
-SITE_ID = 1
-
-AUTHENTICATION_BACKENDS = [
-
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by email
-    'allauth.account.auth_backends.AuthenticationBackend',
-    
-]
 
 # Application definition
 
@@ -98,48 +91,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'openpage.wsgi.application'
 
-SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': config('CLIENT_ID'),
-            'secret': config('SECRET_KEY'),
-            'key': ''
-        }
-    },
-    'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': config('GOOGLE_ID'),
-            'secret': config('GOOGLE_KEY'),
-            'key': ''
-        },
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+import sys
+
+DATABASES = {}
+if 'runserver' in sys.argv or 'shell' in sys.argv:
+    # use Sqllite if not in production
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
-
-DATABASES['default'] = dj_database_url.parse(config("POSTGRES"))
+else:
+    DATABASES['default'] = dj_database_url.parse(config("POSTGRES"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -192,5 +161,47 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REPLICATE_API_TOKEN = config("REPLICATE_API_TOKEN")
 
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': config('CLIENT_ID'),
+            'secret': config('SECRET_KEY'),
+            'key': ''
+        }
+    },
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': config('GOOGLE_ID'),
+            'secret': config('GOOGLE_KEY'),
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
