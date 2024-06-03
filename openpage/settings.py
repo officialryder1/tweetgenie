@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.Google',
     'allauth.socialaccount.providers.twitter',
 ]
 
@@ -107,6 +107,23 @@ SOCIALACCOUNT_PROVIDERS = {
             'client_id': config('CLIENT_ID'),
             'secret': config('SECRET_KEY'),
             'key': ''
+        }
+    },
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': config('GOOGLE_ID'),
+            'secret': config('GOOGLE_KEY'),
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
         }
     }
 }
@@ -173,3 +190,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REPLICATE_API_TOKEN = config("REPLICATE_API_TOKEN")
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
